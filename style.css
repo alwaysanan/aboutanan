@@ -1,0 +1,145 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+#judul {
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#paragraf {
+  color: #ff0;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#tombol {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#container {
+  width: 80%;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#box1 {
+  width: 50%;
+  height: 100px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+}
+
+#box2 {
+  width: 50%;
+  height: 100px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: right;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+#container {
+  width: 80%;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#header {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#kata-motivasi {
+  padding: 20px;
+}
+
+#kata-motivasi p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00698f;
+  margin-bottom: 10px;
+}
+
+#footer {
+  background-color: #4C;
+  color: #fff;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+#container {
+  width: 80%;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#header {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#hadist {
+  padding: 20px;
+}
+
+#arab {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00698f;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#artinya {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+#sumber {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#footer {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
