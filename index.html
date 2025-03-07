@@ -1,0 +1,175 @@
+<!-- Subscrbe YouTube Always Anan  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Pengaturan karakter encoding untuk mendukung semua karakter Unicode -->
+    <meta charset="UTF-8">
+
+    <!-- Pengaturan viewport untuk responsivitas pada perangkat mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+      Import Font Awesome untuk ikon sosial media dan navigasi
+      Versi 6.5.1 dipilih untuk fitur dan ikon terbaru 
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- 
+      Import AOS (Animate On Scroll) library
+      Digunakan untuk membuat animasi scroll yang menarik 
+    -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Import file CSS custom untuk styling tambahan -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Portfolio Website</title>
+</head>
+
+<body>
+
+    <!-- 
+      Navigation Section
+      - Menggunakan sistem grid untuk layout
+      - Includes logo dan menu navigasi
+      - Responsive dengan hamburger menu untuk mobile 
+    -->
+    <nav>
+        <div class="nav-container">
+
+            <!-- 
+              Logo dengan animasi zoom-in
+              data-aos-duration: 1500ms untuk animasi yang smooth 
+            -->
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Always <span>Anan</span>
+            </div>
+
+            <!-- 
+              Navigation Links
+              - Menggunakan fade-up animation dengan delays bertingkat
+              - Active class untuk halaman yang sedang aktif 
+            -->
+            <div class="links">
+                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
+                        href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a
+                        href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
+                        href="skill.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a
+                        href="service.html">Service</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a
+                        href="contact.html">Contact</a></div>
+            </div>
+        </div>
+
+        <!-- 
+          Hamburger Menu Icon
+          - Muncul pada tampilan mobile
+          - Menggunakan Font Awesome icon
+          - onClick handler untuk membuka menu 
+        -->
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+
+        <!-- 
+          Dropdown Menu untuk Mobile
+          - Berisi link navigasi yang sama
+          - Muncul ketika hamburger menu diklik
+          - Includes tombol close (x) 
+        -->
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skill.html">Skills</a>
+                <a href="service.html">Service</a>
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+      Main Content Section
+      - Menggunakan grid untuk layout dua kolom
+      - Includes teks intro dan gambar profil 
+    -->
+    <section>
+        <div class="main-container">
+            <!-- 
+              Content Container
+              - Berisi heading, typewriter effect, dan social links
+              - Setiap elemen memiliki animasi AOS yang berbeda 
+            -->
+            <div class="content">
+                <!-- Heading dengan fade-left animation -->
+                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey I'm <span>Always Anan</span>
+                </h1>
+
+                <!-- 
+                  Typewriter Effect
+                  - Menggunakan JavaScript untuk animasi ketik
+                  - Fade-right animation untuk container 
+                -->
+                <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900" class="typewriter">I'm a <span
+                        class="typewriter-text"></span><label for="">|</label></div>
+
+                <!-- Paragraf deskripsi dengan flip-down animation -->
+                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">Lorem ipsum dolor sit, amet
+                    consectetur adipisicing elit. Ut fuga officiis corrupti tempora, sapiente a quae alias suscipit
+                    ratione? Eaque obcaecati a ea accusamus sint dignissimos delectus maxime porro tempore!</p>
+
+                <!-- 
+                  Social Media Links
+                  - Menggunakan Font Awesome icons
+                  - Fade-up animation dengan delays bertingkat 
+                -->
+                <div class="social-links">
+                    <a data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i
+                            class="fa-brands fa-telegram"></i></a>
+                    <a href="#" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </div>
+
+                <!-- 
+                  Download CV Button
+                  - Zoom-out animation dengan delay terpanjang
+                  - Styling didefinisikan di CSS 
+                -->
+                <div class="btn" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
+                    <button>Download CV</button>
+                </div>
+            </div>
+
+            <!-- 
+              Image Container
+              - Menggunakan zoom-in animation
+              - Durasi lebih panjang (3000ms) untuk efek dramatic 
+            -->
+            <div class="image" data-aos="zoom-in" data-aos-duration="3000">
+    <img src="img/anan.jpg" alt="Anan Profile">
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+      Script Imports
+      - AOS library untuk animasi
+      - Custom JavaScript untuk fungsionalitas tambahan 
+    -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS dengan offset 0 untuk trigger tepat waktu
+        AOS.init({ offset: 0, });
+    </script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
+<!-- Subscrbe YouTube Always Anan  -->
