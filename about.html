@@ -1,0 +1,767 @@
+<!-- Subscribe Always Anan di YouTube -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link ke Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Link ke library animasi AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- CSS internal untuk styling halaman -->
+    <style>
+        /* 
+          Import Google Font Poppins
+          Font weight yang diimport: 100, 200, 300, 400, 500, 600 
+        */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+        /* Reset CSS dan pengaturan default */
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+
+/* Styling untuk body */
+/* - Menggunakan warna hitam sebagai background */
+/* - Cover seluruh viewport */
+/* - Mencegah horizontal scroll */
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black; /* Menggunakan warna hitam */
+    color: white; /* Mengatur warna teks agar kontras */
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+        /* 
+          Navbar styling
+          - Fixed height 10vh
+          - Posisi relative untuk positioning yang tepat
+          - z-index tinggi agar selalu di atas konten lain
+        */
+        nav {
+            width: 100%;
+            height: 10vh;
+            position: sticky;
+            position: relative;
+            /* Ubah dari sticky ke relative */
+            z-index: 1000;
+            /* Tambahkan z-index tinggi untuk nav */
+        }
+
+        /* Container untuk konten navbar */
+        .nav-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* 
+          Logo styling
+          - Warna putih dengan ukuran 2rem
+          - Text shadow untuk efek glow pada span 
+        */
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+        }
+
+        /* 
+          Hamburger dan Cancel button styling
+          - Hanya muncul di mobile view
+          - Posisi absolute di kanan atas
+        */
+        .hamburg,
+        .cancel {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            color: white;
+            display: none;
+            font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+        }
+
+        /* 
+          Navigation links container
+          - Flex layout untuk alignment horizontal
+        */
+        .nav-container .links {
+            display: flex;
+        }
+
+        /* 
+          Individual navigation links
+          - Spacing dan styling untuk tiap link
+          - Hover effect dengan border bottom
+        */
+        .nav-container .links a {
+            font-size: 1.2rem;
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 550;
+            transition: 0.3s linear;
+        }
+
+        .nav-container .links a:hover {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        /* Styling untuk link aktif */
+        .nav-container .links .active {
+            color: rgb(58, 211, 3);
+            border-bottom: 2px solid rgb(58, 211, 3);
+        }
+
+        /* 
+          Dropdown menu untuk mobile view
+          - Fixed positioning dengan transform untuk animasi
+          - Backdrop filter untuk efek blur
+        */
+        .dropdown {
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            transform: translateY(-500px);
+            width: 100%;
+            height: auto;
+            backdrop-filter: blur(4px) brightness(40%);
+            box-shadow: 0 0 20px black;
+            transition: 0.2s linear;
+        }
+
+        .dropdown .links a {
+            display: flex;
+            color: white;
+            text-decoration: none;
+            padding: 15px 0;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s linear;
+        }
+
+        .dropdown .links a:hover {
+            background-color: rgb(58, 211, 3);
+        }
+
+        /* About Section Styles */
+        .about-container {
+            width: 100%;
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content {
+            width: 80%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            /* box-shadow: 0 0 30px rgba(58, 211, 3, 0.3); */
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: rgb(58, 211, 3);
+            text-shadow: 0 0 10px rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgb(58, 211, 3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: rgba(58, 211, 3, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgb(58, 211, 3);
+            cursor: pointer;
+        }
+
+        .stat-item h3 {
+            color: rgb(58, 211, 3);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .content-card {
+            background: rgba(58, 211, 3, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(58, 211, 3, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 1.5rem;
+        }
+
+        .card-info h3 {
+            color: rgb(58, 211, 3);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-info .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .technology-tag {
+            background: rgba(58, 211, 3, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: rgb(58, 211, 3);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: rgb(58, 211, 3);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgb(45, 165, 2);
+            transform: translateY(-2px);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+            color: rgb(58, 211, 3);
+            margin-bottom: 1rem;
+        }
+
+        .client-testimonial {
+            font-style: italic;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(58, 211, 3, 0.05);
+            border-radius: 10px;
+        }
+
+
+
+        @media (max-width: 884px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .logo {
+                position: absolute;
+                top: 16px;
+                left: 15px;
+                font-size: 1.5rem;
+            }
+
+            .nav-container .links {
+                display: none;
+            }
+
+            .hamburg,
+            .cancel {
+                display: block;
+            }
+        }
+
+        @media (max-width: 440px) {
+            .about-container {
+                padding: 1rem;
+            }
+
+            .about-content {
+                width: 95%;
+                /* Memperbesar width untuk layar kecil */
+                padding: 1.5rem;
+            }
+
+            .about-header h1 {
+                font-size: 1.8rem;
+                /* Mengurangi ukuran judul */
+            }
+
+            .about-text h2 {
+                font-size: 1.4rem;
+                /* Mengurangi ukuran sub-judul */
+            }
+
+            .about-text p {
+                font-size: 0.9rem;
+                /* Mengurangi ukuran teks */
+                line-height: 1.4;
+            }
+
+            .about-image {
+                width: 100%;
+                max-height: 250px;
+                /* Membatasi tinggi gambar */
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                /* Tetap 2 kolom tapi lebih kecil */
+                gap: 0.8rem;
+            }
+
+            .stat-item {
+                padding: 0.8rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.2rem;
+                /* Mengurangi ukuran angka statistik */
+            }
+
+            .stat-item p {
+                font-size: 0.8rem;
+                /* Mengurangi ukuran teks statistik */
+            }
+
+            /* Menyesuaikan padding untuk link statistik */
+            .stat-item a {
+                padding: 0.5rem;
+                display: block;
+            }
+        }
+    </style>
+    <title>About - Always Portfolio Website</title>
+</head>
+
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Always <span>Anan</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a
+                        href="index.html">Home</a></div>
+                <div class="link active" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a
+                        href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a
+                        href="skill.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a
+                        href="service.html">Service</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a
+                        href="contact.html">Contact</a></div>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skill.html">Skills</a>
+                <a href="service.html">Service</a>
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten utama halaman About -->
+    <div class="about-container">
+        <div class="about-content" id="aboutContent">
+            <!-- Bagian header -->
+            <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>About Me</h1>
+            </div>
+
+            <!-- Grid untuk teks deskripsi -->
+                <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
+                    <h2>Who Am I?</h2>
+                    <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
+                        innovative digital solutions. With expertise in web development, UI/UX design, and content
+                        creation, I bring ideas to life through code and creativity.</p>
+                    <p>My journey in technology began with a simple curiosity and has evolved into a professional
+                        pursuit of excellence in digital craftsmanship.</p>
+
+                    <div class="stats">
+                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200"
+                            onclick="showProjects()">
+                            <h3>50+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400"
+                            onclick="showExperience()">
+                            <h3>3+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600"
+                            onclick="showClients()">
+                            <h3>20+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800"
+                            onclick="showAwards()">
+                            <h3>15+</h3>
+                            <p>Awards Won</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link ke library animasi AOS -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+        <!-- JavaScript untuk interaksi dan animasi halaman -->
+        <script>
+
+            // Inisialisasi library AOS
+            AOS.init({ offset: 0 });
+
+            // Fungsi untuk menampilkan menu hamburger
+            function hamburg() {
+                const navbar = document.querySelector(".dropdown")
+                navbar.style.transform = "translateY(0px)"
+            }
+
+            // Fungsi untuk menyembunyikan menu hamburger
+            function cancel() {
+                const navbar = document.querySelector(".dropdown")
+                navbar.style.transform = "translateY(-500px)"
+            }
+
+            // Fungsi untuk menampilkan daftar Project
+            function showProjects() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>My Projects</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateProjectCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            // Fungsi untuk menampilkan daftar Experience
+            function showExperience() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>My Experience</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateExperienceCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            // Fungsi untuk menampilkan daftar Clients
+            function showClients() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>Client Success Stories</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateClientCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            // Fungsi untuk menampilkan daftar Awards
+            function showAwards() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <a href="about.html" class="back-button" onclick="restoreInitialContent()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </a>
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>Awards & Recognition</h1>
+                </div>
+                <div class="content-grid">
+                    ${generateAwardCards()}
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu project
+            function generateProjectCards() {
+                const projects = [
+                    {
+                        title: "E-Commerce Platform",
+                        description: "A full-stack e-commerce solution with payment integration",
+                        technologies: ["React", "Node.js", "MongoDB"]
+                    },
+                    {
+                        title: "Portfolio Website",
+                        description: "Responsive portfolio website with modern animations",
+                        technologies: ["HTML", "CSS", "JavaScript"]
+                    },
+                    {
+                        title: "Task Management App",
+                        description: "Mobile-first task management application",
+                        technologies: ["Vue.js", "Firebase"]
+                    }
+                    // Add more projects as needed
+                ];
+
+                return projects.map(project => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <div class="technologies">
+                            ${project.technologies.map(tech => `
+                                <span class="technology-tag">${tech}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu experience
+            function generateExperienceCards() {
+                const experiences = [
+                    {
+                        title: "Senior Web Developer",
+                        company: "Tech Solutions Inc.",
+                        period: "2021 - Present",
+                        description: "Leading frontend development team and implementing modern web solutions"
+                    },
+                    {
+                        title: "Frontend Developer",
+                        company: "Digital Agency",
+                        period: "2019 - 2021",
+                        description: "Developed responsive websites and web applications"
+                    }
+                    // Add more experiences as needed
+                ];
+
+                return experiences.map(exp => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <h3>${exp.title}</h3>
+                        <h4>${exp.company}</h4>
+                        <p class="period">${exp.period}</p>
+                        <p>${exp.description}</p>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu client
+            function generateClientCards() {
+                const clients = [
+                    {
+                        name: "Ell Udin",
+                        company: "Innovation Corp",
+                        testimonial: "Outstanding work on our company website redesign!"
+                    },
+                    {
+                        name: "Ell Ucup",
+                        company: "Tech Startup",
+                        testimonial: "Delivered our app ahead of schedule with excellent quality"
+                    }
+                    // Add more clients as needed
+                ];
+
+                return clients.map(client => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <h3>${client.name}</h3>
+                        <h4>${client.company}</h4>
+                        <p class="client-testimonial">"${client.testimonial}"</p>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi pembantu untuk menghasilkan kartu award
+            function generateAwardCards() {
+                const awards = [
+                    {
+                        title: "Best Web Design",
+                        organization: "Design Awards 2023",
+                        description: "Recognition for exceptional web design and user experience"
+                    },
+                    {
+                        title: "Innovation Award",
+                        organization: "Tech Summit 2022",
+                        description: "Awarded for innovative use of emerging technologies"
+                    }
+                    // Add more awards as needed
+                ];
+
+                return awards.map(award => `
+                <div class="content-card" data-aos="fade-up">
+                    <div class="card-info">
+                        <div class="award-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>${award.title}</h3>
+                        <h4>${award.organization}</h4>
+                        <p>${award.description}</p>
+                    </div>
+                </div>
+            `).join('');
+            }
+
+            // Fungsi untuk mengembalikan konten awal
+            function restoreInitialContent() {
+                const aboutContent = document.getElementById('aboutContent');
+                aboutContent.innerHTML = `
+                <div class="about-header" data-aos="fade-down" data-aos-duration="1500">
+                    <h1>About Me</h1>
+                </div>
+                    <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
+                        <h2>Who Am I?</h2>
+                        <p>I'm a passionate developer and designer with a keen eye for detail and a drive for creating
+                            innovative digital solutions. With expertise in web development, UI/UX design, and content
+                            creation, I bring ideas to life through code and creativity.</p>
+                        <p>My journey in technology began with a simple curiosity and has evolved into a professional
+                            pursuit of excellence in digital craftsmanship.</p>
+
+                        <div class="stats">
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200" onclick="showProjects()">
+                                <h3>50+</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400" onclick="showExperience()">
+                                <h3>3+</h3>
+                                <p>Years Experience</p>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="600" onclick="showClients()">
+                                <h3>20+</h3>
+                                <p>Happy Clients</p>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="800" onclick="showAwards()">
+                                <h3>15+</h3>
+                                <p>Awards Won</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+                AOS.refresh();
+            }
+
+        </script>
+</body>
+
+</html>
+
+<!-- Subscribe Always Anan di YouTube -->
