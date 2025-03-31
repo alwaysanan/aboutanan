@@ -319,7 +319,7 @@
                 : document.getElementById("nomor-pembayaran").innerText;
 
             let pesan = `Halo, saya ingin melakukan pembayaran sebesar Rp${amount} melalui ${metode} untuk produk: ${produkTerpilih.nama}.\n\n` +
-                        `🔗 *Info Pembayaran*: ${pembayaranInfo}\n\n` +
+                        `🔗 Info Pembayaran: ${pembayaranInfo}\n\n` +
                         `Tolong konfirmasi pesanan saya. Terima kasih!`;
 
             let waLink = `https://t.me/${usr}?text=${encodeURIComponent(pesan)}`;
