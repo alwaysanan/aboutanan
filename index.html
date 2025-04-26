@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOKO HOSTING MURAH DAN BERKUALITAS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #111;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    nav a {
+      color: #00ffd5;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00c7ab;
+    }
+    header {
+      background-color: #000000;
+      color: #00ffd5;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      animation: fadeInDown 1s ease-out;
+    }
+    .intro-text {
+      text-align: center;
+      margin: 30px auto;
+      max-width: 700px;
+      font-size: 1rem;
+      padding: 0 20px;
+      animation: fadeIn 1.5s ease-in-out;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .shop-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      padding: 2rem;
+    }
+    .product {
+      background: #1b1b1b;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      width: 200px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 255, 213, 0.3);
+    }
+    .product img {
+      width: 100%;
+      max-width: 150px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .product img:hover {
+      transform: scale(1.05);
+    }
+    .product h3 {
+      margin-top: 0.8rem;
+      color: #00ffd5;
+      font-size: 1.1rem;
+    }
+    .product p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .product button {
+      background-color: #00ffd5;
+      color: #000;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s;
+    }
+    .product button:hover {
+      background-color: #00c7ab;
+    }
+    .product a {
+      text-decoration: none;
+      outline: none;
+      border: none;
+      display: block;
+    }
+    .product a:focus {
+      outline: none;
+      border: none;
+    }
+    .checkout {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+    }
+    .checkout button {
+      background-color: #25D366;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .checkout button:hover {
+      background-color: #1ebc59;
+    }
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Welcome Modal */
+    .welcome-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .welcome-content {
+      background: #1a1a1a;
+      padding: 30px 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,255,213,0.5);
+      animation: fadeInDown 0.8s ease-out;
+    }
+    .welcome-content h2 {
+      margin-bottom: 15px;
+      color: #00ffd5;
+    }
+    .welcome-content p {
+      color: #ccc;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+    .welcome-content button {
+      padding: 10px 25px;
+      background-color: #00ffd5;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .welcome-content button:hover {
+      background-color: #00c7ab;
+    }
+  </style>
+</head>
+
+<body>
+<iframe src="musik.html" style="display:none;"></iframe>
+<header>alwaysanan.site</header>
+<nav>
+  <a href="index.html">Produk</a>
+  <a href="testimoni.html">Testimoni</a>
+  <a href="aboutme.html">About me</a>
+</nav>
+
+<div class="shop-container" id="shop">
+  <!-- Produk -->
+  <div class="product">
+    <a href="#" onclick="checkout('Panel Ram Unlimited', '10000')">
+      <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Panel Ram Unlimited" />
+      <h3>Panel Ram Unlimited</h3>
+      <p>Rp 10.000/Bulan</p>
+    </a>
+    <button onclick="checkout('Panel Ram Unlimited', '10000')">Beli</button>
+  </div>
+
+  <div class="product">
+    <a href="#" onclick="checkout('Panel Ram 7 Gb', '7000')">
+      <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Panel Ram 7 Gb" />
+      <h3>Panel Ram 7 Gb</h3>
+      <p>Rp 7.000/Bulan</p>
+    </a>
+    <button onclick="checkout('Panel Ram 7 Gb', '7000')">Beli</button>
+  </div>
+
+  <div class="product">
+    <a href="#" onclick="checkout('Panel Ram 6 Gb', '6000')">
+      <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Panel Ram 6 Gb" />
+      <h3>Panel Ram 6 Gb</h3>
+      <p>Rp 6.000/Bulan</p>
+    </a>
+    <button onclick="checkout('Panel Ram 6 Gb', '6000')">Beli</button>
+  </div>
+
+  <div class="product">
+    <a href="#" onclick="checkout('Panel Ram 5 Gb', '5000')">
+      <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Panel Ram 5 Gb" />
+      <h3>Panel Ram 5 Gb</h3>
+      <p>Rp 5.000/Bulan</p>
+    </a>
+    <button onclick="checkout('Panel Ram 5 Gb', '5000')">Beli</button>
+  </div>
+
+  <div class="product">
+    <a href="#" onclick="checkout('Reseller Panel Private', '15000')">
+      <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Reseller Panel Private" />
+      <h3>Reseller Panel Private</h3>
+      <p>Rp 15.000/Bulan</p>
+    </a>
+    <button onclick="checkout('Reseller Panel Private', '15000')">Beli</button>
+  </div>
+
+  <div class="product">
+    <a href="#" onclick="checkout('Admin Panel', '20000')">
+      <img src="https://cdn.pterodactyl.io/logos/new/pterodactyl_logo_transparent.png" alt="Admin Panel" />
+      <h3>Admin Panel</h3>
+      <p>Rp 20.000/Bulan</p>
+    </a>
+    <button onclick="checkout('Admin Panel', '20000')">Beli</button>
+  </div>
+
+  <div class="product">
+    <a href="#" onclick="checkout('Nokos WhatsApp 🇮🇩', '10000')">
+      <img src="https://files.catbox.moe/px3l85.jpg" alt="Nokos WhatsApp" />
+      <h3>Nokos WhatsApp 🇮🇩</h3>
+      <p>Rp 10.000</p>
+    </a>
+    <button onclick="checkout('Nokos WhatsApp 🇮🇩', '10000')">Beli</button>
+  </div>
+</div>
+
+<!-- Checkout -->
+<div class="checkout" id="checkout">
+  <h2 id="selected-product"></h2>
+  <p id="product-price"></p>
+  <button onclick="pay()">Bayar Sekarang</button>
+</div>
+
+<!-- Welcome Modal -->
+<div class="welcome-modal" id="welcome-modal">
+  <div class="welcome-content">
+    <h2>Selamat Datang!</h2>
+    <p>Terima kasih telah mengunjungi <strong>alwaysanan.site</strong>.<br>Selamat berbelanja dengan nyaman dan aman!</p>
+    <button onclick="closeWelcome()">Mulai Belanja</button>
+  </div>
+</div>
+
+<script>
+  let selectedProduct = '';
+  let productPrice = '';
+
+  function checkout(product, price) {
+    document.getElementById('shop').style.display = 'none';
+    document.getElementById('checkout').style.display = 'block';
+    document.getElementById('selected-product').innerText = `Produk: ${product}`;
+    document.getElementById('product-price').innerText = `Harga: Rp ${price}`;
+    selectedProduct = product;
+    productPrice = price;
+  }
+
+  function pay() {
+    const message = `Halo, saya ingin membeli ${selectedProduct} dengan harga Rp ${productPrice}.`;
+    const url = `https://wa.me/6285842763915?text=${encodeURIComponent(message)}`;
+    window.location.href = url;
+  }
+
+  function closeWelcome() {
+    document.getElementById('welcome-modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
+
