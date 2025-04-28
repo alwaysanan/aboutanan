@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimoni - alwaysanan.site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      color: #00ffd5;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      position: relative;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .menu-toggle {
+      position: absolute;
+      left: 1rem;
+      top: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #00ffd5;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      background: rgba(17, 17, 17, 0.95);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      z-index: 1000;
+      padding: 2rem;
+    }
+
+    nav a {
+      color: #00ffd5;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00c7ab;
+    }
+
+    .testimoni-container {
+      text-align: center;
+      margin-top: 30px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .testimoni {
+      background: #1b1b1b;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .testimoni:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 255, 213, 0.3);
+    }
+
+    .testimoni p {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    .testimoni h3 {
+      color: #00ffd5;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .stars {
+      color: #ffbc00;
+      font-size: 1.2rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Styling for close button */
+    .close-menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .close-menu:hover {
+      color: #00ffd5;
+    }
+
+    .blur {
+      filter: blur(8px);
+      transition: filter .3s;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    alwaysanan.site
+  </header>
+
+  <!-- Menu overlay -->
+  <nav id="nav">
+    <div class="close-menu" onclick="toggleMenu()">×</div>
+    <a href="index.html">Produk</a>
+    <a href="payment.html">Pembayaran</a>
+    <a href="testimoni.html">Testimoni</a>
+    <a href="aboutme.html">About me</a>
+    <a href="faq.html">FAQ</a>
+    <a href="blog.html">Blog</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <div class="testimoni-container">
+    <h2>Testimoni Pengguna Panel Bot WhatsApp & Nokos WhatsApp</h2>
+
+    <!-- Testimoni content goes here -->
+    <!-- Example Testimoni 1 -->
+<div class="testimoni">
+  <h3>Andi Pratama</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel Bot WhatsApp sangat mempermudah bisnis saya. Pengelolaan pesan otomatis yang luar biasa!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Siti Aisyah</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokos WhatsApp dari alwaysanan.site benar-benar aman dan terpercaya. Sangat membantu kebutuhan saya."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rizky Ramadhan</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panelnya sangat user friendly. Gampang dioperasikan, cocok buat pemula sekalipun."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Dewi Sartika</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sekarang saya bisa mengelola banyak pesan sekaligus dengan cepat berkat Bot WhatsApp ini."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Ahmad Fauzi</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Harga sangat terjangkau dan fitur sangat lengkap. Highly recommended!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Putri Rahmawati</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Botnya stabil, tidak pernah down. Bisnis online saya jadi makin lancar."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Bayu Saputra</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Layanan supportnya cepat dan ramah. Masalah langsung ditangani."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Nurul Hikmah</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokosnya real no tipu-tipu. Dipakai langsung jalan tanpa kendala."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Agus Santoso</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot WhatsApp ini membantu saya membalas customer otomatis, hemat waktu banget."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Lisa Marlina</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sangat puas dengan pelayanan dan kualitasnya. Panel terbaik yang pernah saya coba."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Ardiansyah Putra</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Pengerjaan cepat, akun langsung aktif. Mantap pokoknya!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Indah Puspitasari</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Fiturnya lengkap, mulai dari auto reply, broadcast, sampai autoresponder."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Fikri Maulana</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sangat memudahkan saya dalam mengelola grup WhatsApp customer."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Retno Ayu</h3>
+  <div class="stars">★★★★★</div>
+  <p>"UI/UX panelnya sangat enak dilihat dan mudah dipahami."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Ilham Hidayat</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Botnya cepat merespons pesan, pelanggan saya jadi lebih puas."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Novi Lestari</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Rekomendasi terbaik untuk pebisnis online. Terima kasih alwaysanan.site."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Adi Kurniawan</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Dengan Nokos WhatsApp, saya bisa membuat banyak akun untuk jualan."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Melati Dewi</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot WhatsApp ini stabil sekali, tidak ada kendala sampai sekarang."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rian Firmansyah</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Layanan customer service sangat membantu saat ada masalah teknis."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Yuniarti Wahyuni</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Saya bisa mengirimkan broadcast ribuan pesan sekaligus dalam hitungan menit."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Gilang Mahardika</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokos yang saya beli aktif 100%. Tidak ada kendala sama sekali."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Sarah Amelia</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Pengerjaan super cepat! Sore order, malam sudah bisa dipakai."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Yusuf Efendi</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Puas banget dengan kualitas layanan di alwaysanan.site."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Clara Anindita</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot sangat berguna untuk membantu promosi produk secara otomatis."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Farhan Alif</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel botnya sangat cepat diakses, responsif di semua device."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Nanda Oktaviani</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sangat puas dengan performa bot dan nokosnya, 10/10!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rafi Nurhadi</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Akun nokos yang saya beli tidak pernah bermasalah, recommended banget."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Tiara Maharani</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel bot WhatsAppnya mudah diintegrasikan dengan bisnis saya."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Arya Nugraha</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sudah beli berkali-kali di sini, selalu puas dengan layanannya."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Silvia Hartati</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Auto reply yang ada di bot sangat membantu membalas chat customer."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Irwan Saputra</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sekali pakai, langsung ketagihan! Panel bot terbaik."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Desi Amelia</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Harga murah, kualitas premium. Terima kasih alwaysanan.site!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Bagus Prasetyo</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bisa kirim broadcast ke ribuan nomor tanpa kena banned. Luar biasa!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Intan Safitri</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sudah saya rekomendasikan ke teman-teman bisnis saya."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Denny Kurniawan</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot ini cocok buat dropshipper dan online shop."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Maria Yuliana</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sangat membantu meningkatkan omset toko online saya."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Hanif Iskandar</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Pengiriman super cepat dan akun langsung ready to use."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Nuraini Fadilah</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot dan Nokosnya stabil walau dipakai ribuan chat tiap hari."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Galih Perdana</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel terpercaya, support selalu standby kapanpun dibutuhkan."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Fitriani Hasanah</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sudah pakai 3 bulan, performa tetap stabil dan lancar."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rendi Syahputra</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Cocok banget buat pemula, mudah dipakai dan langsung paham."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Yohana Sari</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel terbaik se-Indonesia! Kualitas juara."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rizal Hakim</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokos WA berkualitas tinggi, tidak pernah bermasalah."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Vina Ayu</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot auto reply-nya akurat dan cepat, sangat membantu bisnis saya."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Wahyu Aditya</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel loading cepat, dashboard rapi dan responsif."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Karina Mutiara</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Alwaysanan.site benar-benar bisa dipercaya untuk kebutuhan bisnis digital."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Septian Dwi</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sangat membantu bisnis reseller saya berkembang pesat."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Dian Kusuma</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sangat puas! Bot jalan stabil, harga bersahabat."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Aditya Maulana</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Fitur lengkap, harga bersahabat, pelayanan ramah. Top markotop!"</p>
+</div>
+<div class="testimoni">
+  <h3>Hendra Wijaya</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel Bot WhatsAppnya sangat membantu membangun database customer secara cepat."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Selvi Amalia</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Tidak ada kendala dalam penggunaan, semuanya berjalan lancar."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Joko Priyono</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Harga sangat bersahabat untuk fitur sekeren ini."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Maya Kurniasih</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Broadcast massal jadi lebih gampang, ga perlu kirim manual lagi."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Anton Setiawan</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokosnya ready 24 jam, pelayanan cepat dan memuaskan."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Vera Lestari</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot WhatsAppnya responsif, semua fitur jalan tanpa error."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rahmat Hidayat</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokos WhatsAppnya valid dan langsung aktif, mantap!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Wulan Ayuningtyas</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Kini bisnis saya makin profesional dengan auto responder dari panel ini."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Yoga Saputra</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panelnya stabil meskipun menghandle banyak traffic pesan."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rosa Febrianti</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Auto reply botnya sangat cepat merespon pesan dari customer."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Fahriansyah Zain</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Selalu repeat order karena kualitas Nokosnya bagus banget."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Nadia Putri</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Dengan Panel Bot WA, customer service saya jadi lebih cepat."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rizwan Kurniawan</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot ini solusi praktis buat yang ingin mengembangkan bisnis online."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Dina Oktavia</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Sistemnya terintegrasi dengan baik, anti ribet!"</p>
+</div>
+
+<div class="testimoni">
+  <h3>Rendy Pratama</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel Bot WA terbaik sejauh ini, worth it banget."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Anisa Maharani</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Nokos yang disediakan sangat berkualitas dan aman digunakan."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Bagas Aditya</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Proses transaksi cepat, support ramah, pelayanan maksimal."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Yuliana Citra</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Pengelolaan customer kini lebih mudah berkat panel bot dari alwaysanan.site."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Samuel Prakoso</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Bot WhatsAppnya membuat bisnis saya bisa scale up lebih cepat."</p>
+</div>
+
+<div class="testimoni">
+  <h3>Dewi Anggraini</h3>
+  <div class="stars">★★★★★</div>
+  <p>"Panel modern dengan fitur-fitur lengkap. Pokoknya puas banget!"</p>
+</div>
+
+    <!-- Repeat for other testimonials -->
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const main = document.querySelector('.testimoni-container');
+      const open = nav.style.display !== 'flex';
+      nav.style.display = open ? 'flex' : 'none';
+      main.classList.toggle('blur', open);
+    }
+  </script>
+</body>
+</html>

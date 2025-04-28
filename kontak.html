@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - alwaysanan.site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      color: #00ffd5;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .menu-toggle {
+      position: absolute;
+      left: 1rem;
+      top: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #00ffd5;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* NAV sebagai overlay fixed */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      background: rgba(17, 17, 17, 0.95);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      z-index: 1000;
+      padding: 2rem;
+    }
+
+    nav a {
+      color: #00ffd5;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00c7ab;
+    }
+
+    /* Blur efek saat menu terbuka */
+    .blur {
+      filter: blur(8px);
+      transition: filter .3s;
+    }
+
+    /* Tombol silang di pojok kanan atas */
+    .close-menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .close-menu:hover {
+      color: #00ffd5;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      padding: 0 15px;
+      animation: fadeIn 1.5s ease-in-out;
+      flex-grow: 1;
+    }
+
+    .contact-container h2 {
+      color: #00ffd5;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .whatsapp-btn {
+      background-color: #25d366;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #128c7e;
+      transform: translateY(-5px);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    .video-container {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }
+
+    iframe {
+      width: 90%;
+      max-width: 1000px;
+      height: 562px; /* 16:9 ratio */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      background-color: #000000;
+      color: #00ffd5;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    alwaysanan.site
+  </header>
+
+  <!-- menu overlay -->
+  <nav id="nav">
+    <div class="close-menu" onclick="toggleMenu()">×</div>
+    <a href="index.html">Produk</a>
+    <a href="payment.html">Pembayaran</a>
+    <a href="testimoni.html">Testimoni</a>
+    <a href="aboutme.html">About me</a>
+    <a href="faq.html">FAQ</a>
+    <a href="blog.html">Blog</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <div class="contact-container">
+    <h2>Kontak Kami</h2>
+    <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, Anda dapat menghubungi kami langsung melalui WhatsApp:</p>
+
+    <a href="https://wa.me/6285842763915" class="whatsapp-btn" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="24" />
+      Hubungi Kami di WhatsApp
+    </a>
+
+    <p>Atau hubungi kami melalui sosial media:</p>
+
+    <div class="social-icons">
+      <a href="https://www.youtube.com/@alwaysanan" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube Logo" />
+      </a>
+      <a href="https://instagram.com/anan.offc" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram Logo" />
+      </a>
+      <a href="https://t.me/ananoffc" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Telegram Logo" />
+      </a>
+    </div>
+
+    <div class="video-container">
+      <h2>Tonton Video Kami</h2>
+      <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 alwaysanan.site</footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav');
+      const main = document.querySelector('.contact-container');
+      const open = nav.style.display !== 'flex';
+      nav.style.display = open ? 'flex' : 'none';
+      main.classList.toggle('blur', open);
+    }
+
+    // Video YouTube ID
+    const videoIds = [
+      'BqhbEEIr878', // 1
+      'IPBDnj6SvtM', // 2
+      '1YuMjxipkV4', // 3
+      'SLLQDKFH6t4', // 4
+      'EuDziuKE4tM'  // 5
+    ];
+
+    let currentVideo = 0;
+    const videoFrame = document.getElementById('videoFrame');
+
+    function loadVideo() {
+      videoFrame.src = `https://www.youtube.com/embed/${videoIds[currentVideo]}?autoplay=1&mute=1`;
+      currentVideo = (currentVideo + 1) % videoIds.length;
+    }
+
+    loadVideo();
+    setInterval(loadVideo, 15000); // Ganti video setiap 15 detik
+  </script>
+
+</body>
+
+</html>
