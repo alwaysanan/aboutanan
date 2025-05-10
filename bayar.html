@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembayaran</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      background: #0d0d0d;
+      color: white;
+      height: 100vh;
+      position: relative;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+      margin-top: 10vh;
+      text-align: center;
+      animation: slideIn 1s ease-out;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      transform: scale(0.95);
+      opacity: 0;
+      animation: scaleIn 1s forwards ease-in-out;
+    }
+
+    @keyframes scaleIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      text-shadow: 2px 2px 10px rgba(0, 255, 200, 0.5);
+    }
+
+    p {
+      margin: 0.5rem 0;
+      color: #ddd;
+      font-size: 1rem;
+    }
+
+    .payment-option {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      gap: 1.5rem;
+    }
+
+    .payment-option img {
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      border-radius: 12px;
+      padding: 10px;
+      background: #222;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+    }
+
+    .payment-option img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+      opacity: 0.9;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 12px 24px;
+      border: none;
+      background: linear-gradient(135deg, #00ffc3, #0070ff);
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      z-index: 10;
+    }
+
+    .popup-content {
+      background: #111;
+      color: #fff;
+      padding: 2rem;
+      border-radius: 14px;
+      text-align: center;
+      max-width: 350px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .popup-content img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .popup-content button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      background: #00b386;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup-content button:hover {
+      background: #009966;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="stars"></canvas>
+
+  <div class="container">
+    <h2 id="product-name">Produk</h2>
+    <p id="product-desc">Deskripsi produk akan muncul di sini.</p>
+    <p><strong>Pilih metode pembayaran:</strong></p>
+    <div class="payment-option">
+      <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhFGUE707IY8kQVOwZL99RIFJISIL2YbPOWiHuiFhx2dTNRArgrYhsxmvffkr06UuMmW_bH_jvz5Fwmu_2ulgwM3LZDNrk5ffAMdh2Idupas0uEpaasSyzx1vqelkojB0xM8e-3nsGVLdRGZniVPwjOlnwGY1g8pPl7SY6gLq0lMDft2Wv8X9RiVspg=s16000" alt="Dana" onclick="pilihPembayaran('Dana', '0895428251533')">
+      <img src="https://cdn.brandfetch.io/idQqAF303b/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5B" alt="GoPay" onclick="pilihPembayaran('GoPay', '0895428251533')">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3RUZ-QuuPspWRcDG92Wd8YK2LfzWgr56qAcGQm7D-R7zZOvbL6mShwyT5YLBOMrTJ7eMFzFrMbmD5yA0S4Cb90axxPLchbl94_p6KPPkKq0S57C7SiGTK5uiQja84i-GLXgUd47N2E2hz/w320-h311/IMG_20210625_221444.jpg" alt="OVO" onclick="pilihPembayaran('OVO', '0895428251533')">
+      <img src="https://images.seeklogo.com/logo-png/39/1/quick-response-code-indonesia-standard-qris-logo-png_seeklogo-391791.png" alt="QRIS" onclick="pilihPembayaran('QRIS', 'https://files.catbox.moe/3iqxs2.jpg')">
+    </div>
+    <button class="btn" onclick="selesaiBayar()">Selesai Bayar</button>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content" id="popup-content">
+      <h3 id="popup-title">Metode</h3>
+      <p id="popup-info"></p>
+      <img id="popup-img" style="display:none">
+      <button id="popup-btn">Tutup</button>
+    </div>
+  </div>
+
+  <div class="popup" id="alert-popup">
+    <div class="popup-content">
+      <h3>Peringatan!</h3>
+      <p>Silakan pilih metode pembayaran terlebih dahulu.</p>
+      <button onclick="document.getElementById('alert-popup').style.display='none'">Oke</button>
+    </div>
+  </div>
+
+  <script>
+    // Animasi bintang
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+    const stars = Array(100).fill().map(() => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.5,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5
+    }));
+
+    function animateStars() {
+      ctx.clearRect(0, 0, w, h);
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+
+        star.x += star.dx;
+        star.y += star.dy;
+
+        if (star.x < 0 || star.x > w) star.dx *= -1;
+        if (star.y < 0 || star.y > h) star.dy *= -1;
+      }
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+    // Produk
+    const produkInfo = {
+      "admin-panel": { nama: "Admin Panel", harga: "Rp20.000", deskripsi: "Panel WhatsApp premium dengan fitur lengkap." },
+      "reseller-panel": { nama: "Reseller Panel", harga: "Rp15.000", deskripsi: "Panel untuk reseller dengan fitur pengelolaan." },
+      "ram-unlimited": { nama: "RAM Unlimited", harga: "Rp10.000", deskripsi: "Panel dengan RAM tanpa batas." },
+      "ram-7gb": { nama: "RAM 7GB", harga: "Rp7.000", deskripsi: "Panel RAM 7GB untuk performa optimal." },
+      "ram-6gb": { nama: "RAM 6GB", harga: "Rp6.000", deskripsi: "Panel RAM 6GB cukup untuk kebutuhan dasar." },
+      "ram-5gb": { nama: "RAM 5GB", harga: "Rp5.000", deskripsi: "Panel WhatsApp RAM 5GB cocok untuk pemula." },
+      "web-soft-simple": { nama: "Web Shop Simple", harga: "Rp100.000", deskripsi: "Website toko sederhana siap pakai." },
+      "web-fortofolio": { nama: "Web Portofolio", harga: "Rp70.000", deskripsi: "Website portofolio elegan dan modern." },
+      "vps-4gb-2core": { nama: "VPS 4GB RAM - 2 Core", harga: "Rp40.000", deskripsi: "Cocok untuk hosting bot ringan dan web panel." },
+      "vps-8gb-4core": { nama: "VPS 8GB RAM - 4 Core", harga: "Rp55.000", deskripsi: "Ideal untuk banyak bot dan aplikasi menengah." },
+      "vps-16gb-4core": { nama: "VPS 16GB RAM - 4 Core", harga: "Rp65.000", deskripsi: "Performa tinggi untuk server besar & multitugas." }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const produk = params.get("produk");
+    let selectedMethod = "";
+    let selectedContact = "";
+
+    if (produkInfo[produk]) {
+      const p = produkInfo[produk];
+      document.getElementById("product-name").textContent = `${p.nama} - ${p.harga}`;
+      document.getElementById("product-desc").textContent = p.deskripsi;
+    }
+
+    function pilihPembayaran(metode, kontak) {
+      selectedMethod = metode;
+      selectedContact = kontak;
+
+      const popup = document.getElementById("popup");
+      const title = document.getElementById("popup-title");
+      const info = document.getElementById("popup-info");
+      const img = document.getElementById("popup-img");
+      const btn = document.getElementById("popup-btn");
+
+      title.textContent = `Bayar via ${metode}`;
+      if (metode === "QRIS") {
+        img.src = kontak;
+        img.style.display = "block";
+        info.textContent = "Scan kode QR dengan aplikasi e-wallet.";
+        btn.textContent = "Tutup";
+        btn.onclick = () => popup.style.display = "none";
+      } else {
+        img.style.display = "none";
+        info.textContent = `Nomor: ${kontak}`;
+        btn.textContent = "Salin & Tutup";
+        btn.onclick = () => {
+          navigator.clipboard.writeText(kontak);
+          popup.style.display = "none";
+        };
+      }
+      popup.style.display = "flex";
+    }
+
+    function selesaiBayar() {
+      if (!selectedMethod) {
+        document.getElementById("alert-popup").style.display = "flex";
+        return;
+      }
+
+      const p = produkInfo[produk];
+      const pesan = `Halo, saya telah melakukan pembayaran.\n\nProduk: ${p.nama}\nHarga: ${p.harga}\nPembayaran via: ${selectedMethod}`;
+      const url = `https://wa.me/6285842763915?text=${encodeURIComponent(pesan)}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
