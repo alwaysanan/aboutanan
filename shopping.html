@@ -1,292 +1,492 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Muhammad Agna</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://files.catbox.moe/lmg7iu.png" />
-
-  <!-- Bootstrap & Font Awesome -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jual panel WhatsApp, RAM bot, dan layanan digital lain. Dikelola oleh Muhammad Agna." />
+  <meta name="keywords" content="panel wa, bot whatsapp, alwaysanan, agna, reseller panel, admin panel" />
+  <title>alwaysanan.site</title>
+  <link rel="icon" href="https://files.catbox.moe/krgxoq.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --light-bg: #f9f9f9;
+      --light-text: #111;
+      --light-card: #fff;
+      --dark-bg: #121212;
+      --dark-text: #eaeaea;
+      --dark-card: #1e1e1e;
+      --accent: #4a90e2;
+      --badge-bg: #e94e77;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+
     body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--light-text);
       transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    .dark-mode {
-      background-color: #212529;
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    header {
+      background-color: var(--accent);
       color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      user-select: none;
     }
 
-    .dark-mode .navbar,
-    .dark-mode .bg-light {
-      background-color: #1a1d20 !important;
-      color: #fff;
-    }
+.toggle-icon {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 999;
+  user-select: none;
+  color: var(--accent);
+  transition: color 0.3s ease;
+  background: var(--light-card);
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-    .dark-mode .navbar-brand,
-    .dark-mode .nav-link,
-    .dark-mode footer,
-    .dark-mode .text-dark {
-      color: #fff !important;
-    }
+body.dark .toggle-icon {
+  background: var(--dark-card);
+  color: #eee;
+}
 
-    .dark-mode .card {
-      background-color: #1a1d20;
-      border-color: #2c3135;
-      color: #fff;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .dark-mode .theme-toggle {
-      background-color: #fff;
-      color: #000;
-    }
-
-    .light-mode .theme-toggle {
-      background-color: #212529;
-      color: #fff;
-    }
-
-    .brand-blue {
-      color: #007bff !important;
-    }
-
-    .dark-mode .brand-blue {
-      color: #4da3ff !important;
-    }
-
-    .card, .navbar, .btn, section, footer {
-      border-radius: 1rem;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    img {
-      transition: transform 0.4s ease;
-    }
-
-    img:hover {
-      transform: scale(1.05);
-    }
-
-    #scrollBar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: #007bff;
-      width: 0%;
-      z-index: 9999;
-    }
-
-    #particles-js {
-      position: fixed;
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      flex-grow: 1;
+      overflow-x: hidden;
       width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
     }
+
+    video {
+      width: 100%;
+      max-height: 400px;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      object-fit: cover;
+      display: block;
+      max-width: 100%;
+    }
+
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--light-card);
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+body.dark .profile {
+  background: var(--dark-card);
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 1rem;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.profile-info h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.spotify-player {
+  max-width: 350px;
+  margin: 0 auto 2rem;
+}
+    .role {
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-box input {
+      padding: 0.6rem 1.2rem;
+      width: 90%;
+      max-width: 400px;
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      font-size: 1rem;
+      background: transparent;
+      color: inherit;
+    }
+
+    .faq-section {
+      margin-top: 2rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--accent);
+      padding-left: 12px;
+      font-weight: 700;
+    }
+
+    .faq {
+      background: var(--light-card);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    body.dark .faq {
+      background: var(--dark-card);
+    }
+
+    .faq h3 {
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #ddd;
+      background: var(--light-bg);
+    }
+
+    body.dark footer {
+      background: var(--dark-bg);
+      color: #bbb;
+      border-top: 1px solid #444;
+    }
+    .section-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid var(--accent);
+  padding-left: 12px;
+  font-weight: 700;
+}
+    
+.product-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.product-row::-webkit-scrollbar {
+  display: none;
+}
+
+.product {
+  background: var(--light-card);
+  border-radius: 12px;
+  padding: 1rem;
+  width: 180px;
+  text-align: center;
+  position: relative;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+body.dark .product {
+  background: var(--dark-card);
+  color: var(--dark-text);
+}
+
+.product img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.product p {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.product button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.youtube-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.youtube-slider iframe {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 180px;
+  border-radius: 10px;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  background: var(--badge-bg);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+    #no-result {
+      text-align: center;
+      font-weight: 600;
+      margin: 2rem 0;
+      color: red;
+    }
+
+@media (max-width: 768px) {
+  .product-row {
+    gap: 0.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .product {
+    width: 160px;
+  }
+
+  .product h3 {
+    font-size: 0.95rem;
+  }
+
+  .product p {
+    font-size: 0.9rem;
+  }
+
+  .product button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
   </style>
 </head>
+<body>
+<div class="toggle-icon" onclick="toggleMode()" id="toggleModeIcon">🌙</div>
+  <header>alwaysanan.site</header>
+  <main class="container">
+    <video autoplay muted loop playsinline>
+      <source src="https://files.catbox.moe/3fh1yb.mp4" type="video/mp4" />
+      Browser Anda tidak mendukung video.
+    </video>
 
-<body class="light-mode">
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
-
-  <!-- Scroll Bar -->
-  <div id="scrollBar"></div>
-
-  <!-- Theme Toggle -->
-  <button class="theme-toggle" onclick="toggleTheme()">
-    <i class="fas fa-moon"></i>
-  </button>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" data-aos="fade-down">
-    <div class="container">
-      <a class="navbar-brand" href="#"><i class="fas fa-seedling me-2 brand-blue"></i><span class="brand-blue">alwaysanan</span>.site</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
-          <li class="nav-item"><a class="nav-link" href="#social">Connect</a></li>
-        </ul>
+    <div class="profile">
+      <img src="https://files.catbox.moe/y4kf3f.jpg" alt="Foto Agna" />
+      <div class="profile-info">
+        <h1>Muhammad Agna</h1>
+        <div class="role">AI Prompt Engineer & Web Developer</div>
+        <p><strong>Lokasi:</strong> Indonesia 🇮🇩</p>
+        <p><strong>Minat:</strong> Otomatisasi, Open Source, Eksperimen Digital</p>
+        <p><strong>Tentang Saya:</strong> Saya senang membangun solusi digital otomatis dan open-source yang membantu komunitas.</p>
       </div>
     </div>
-  </nav>
+    
+<div class="spotify-player">
+  <iframe style="border-radius:12px"
+    src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+    width="100%" height="152"
+    frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
 
-  <!-- Profile -->
-  <section id="profile" class="py-5" data-aos="fade-up">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-4 text-center">
-          <img src="https://files.catbox.moe/y4kf3f.jpg" alt="Profile" class="rounded-circle img-fluid mb-4" style="max-width: 200px;">
-        </div>
-        <div class="col-lg-8">
-          <h1 class="display-4 fw-bold">Muhammad Agna</h1>
-          <p class="lead"><span id="typing"></span></p>
-          <div class="mt-4">
-            <p class="mb-2"><strong>Location:</strong> Somewhere in Indonesia 🇮🇩</p>
-            <p class="mb-2"><strong>Interests:</strong> Breaking & Fixing Code, Open Source Adventures, Internet Wandering</p>
-            <p class="mb-2"><strong>Tech Stack:</strong> <i class="fa-solid fa-robot text-info"></i> AI Prompting</p>
-            <p class="mb-2"><strong>About:</strong> Just a curious soul navigating the digital realm, sharing discoveries, and occasionally breaking things in the process 🚀</p>
-          </div>
-        </div>
-      </div>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Cari produk..." oninput="filterProduk()" />
     </div>
-  </section>
 
-  <!-- Social -->
-  <section id="social" class="py-5 bg-light" data-aos="fade-up">
-    <div class="container">
-      <h2 class="text-center mb-5">Connect With Me</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="row g-4">
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <i class="fab fa-youtube fs-1 text-danger mb-3"></i>
-                  <h5 class="card-title">YouTube Channel</h5>
-                  <div class="card-text">Random bits of digital life</div>
-                  <a href="https://youtube.com/@alwaysanan" class="btn btn-danger">Subscribe</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <i class="fab fa-instagram fs-1 text-primary mb-3"></i>
-                  <h5 class="card-title">Instagram</h5>
-                  <div class="card-text">Visual fragments of my journey</div>
-                  <a href="https://instagram.com/alwaysanan.site" class="btn btn-primary">Follow</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <i class="fab fa-telegram fs-1 text-primary mb-3"></i>
-                  <h5 class="card-title">Telegram</h5>
-                  <div class="card-text">Direct line to my digital self</div>
-                  <a href="https://t.me/alwaysanannn" class="btn btn-primary">Message</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <i class="fas fa-envelope fs-1 text-info mb-3"></i>
-                  <h5 class="card-title">Email</h5>
-                  <div class="card-text">Drop a digital hello</div>
-                  <a href="mailto:alwaysanan@gmail.com" class="btn btn-info text-white">Email Me</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <i class="fas fa-hand-holding-heart fs-1 text-success mb-3"></i>
-                  <h5 class="card-title">Saweria</h5>
-                  <p class="card-text">Support my work</p>
-                  <a href="https://saweria.co/alwaysanan" class="btn btn-success">Saweria</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-              <div class="card h-100 text-center">
-                <div class="card-body">
-                  <i class="fas fa-shop fs-1 text-success mb-3"></i>
-                  <h5 class="card-title">Shopping</h5>
-                  <p class="card-text">Shop for your hosting needs</p>
-                  <a href="https://alwaysanan.site" class="btn btn-success">Shopping</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section class="faq-section">
+      <h2>FAQ - Informasi Edukatif</h2>
+      <article class="faq">
+        <h3>Apa itu bot WhatsApp?</h3>
+        <p>Bot WhatsApp adalah program otomatis yang bisa mengirim, menerima, dan membalas pesan di WhatsApp secara otomatis. Memudahkan bisnis dan personal untuk efisiensi komunikasi.</p>
+      </article>
+      <article class="faq">
+        <h3>Apa itu panel bot WA?</h3>
+        <p>Panel bot WhatsApp adalah aplikasi berbasis web yang mengelola dan mengatur bot WA, memberikan kontrol mudah untuk fitur bot seperti kirim pesan otomatis, manajemen kontak, dan laporan aktivitas bot.</p>
+      </article>
+    </section>
 
-  <!-- Footer -->
-  <footer class="py-4 bg-light border-top" data-aos="fade-up">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2025 alwaysanan.site</p>
-      <small class="text-muted">- Muhammad Agna</small>
-    </div>
+    <div id="produk-container"></div>
+    <div class="youtube-slider">
+  <iframe src="https://www.youtube.com/embed/_0fRRJcorPY" title="Video 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/vsdeVU7vPME" title="Video 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/LUS4ibP0v5A" title="Video 3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/-MrJF14QhXE" title="Video 4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+    <div id="no-result" style="display: none;">Produk tidak ditemukan.</div>
+  </main>
+
+  <footer>
+    &copy; 2025 alwaysanan.site · Muhammad Agna<br />
+    <a href="https://wa.me/6285842763915" target="_blank">WhatsApp</a> |
+    <a href="https://youtube.com/@alwaysanan" target="_blank">YouTube</a>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
   <script>
-    AOS.init();
+  const body = document.body;
+  const icon = document.getElementById('toggleModeIcon');
 
-    function toggleTheme() {
-      const body = document.body;
-      const icon = document.querySelector('.theme-toggle i');
-      body.classList.toggle('dark-mode');
-      body.classList.toggle('light-mode');
-      icon.classList.toggle('fa-moon');
-      icon.classList.toggle('fa-sun');
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark');
+    icon.textContent = '☀️';
+  }
+
+  function toggleMode() {
+    body.classList.toggle('dark');
+    const isDark = body.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    icon.textContent = isDark ? '☀️' : '🌙';
+  }
+
+    const produkData = [
+      {
+        kategori: 'Panel Admin & Reseller',
+        items: [
+          { nama: 'Reseller Panel', harga: 'Rp 15.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'reseller-panel' },
+          { nama: 'Admin Panel', harga: 'Rp 20.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'admin-panel' }
+        ]
+      },
+      {
+        kategori: 'Panel RAM',
+        items: [
+          { nama: 'RAM Unlimited', harga: 'Rp 10.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-unlimited', laris: true },
+          { nama: 'RAM 7GB', harga: 'Rp 7.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-7gb' },
+          { nama: 'RAM 6GB', harga: 'Rp 6.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-6gb' },
+          { nama: 'RAM 5GB', harga: 'Rp 5.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-5gb' }
+        ]
+      },
+      {
+        kategori: 'VPS Digital Ocean',
+        items: [
+          { nama: 'VPS 16GB RAM - 4 Core', harga: 'Rp 55.000', img: 'https://files.catbox.moe/vyolpg.jpg', link: 'vps-16gb-4core' },
+          { nama: 'VPS 8GB RAM - 4 Core', harga: 'Rp 45.000', img: 'https://files.catbox.moe/vyolpg.jpg', link: 'vps-8gb-4core' },
+          { nama: 'VPS 4GB RAM - 2 Core', harga: 'Rp 40.000', img: 'https://files.catbox.moe/vyolpg.jpg', link: 'vps-4gb-2core' }
+        ]
+      },
+      {
+        kategori: 'Pembuatan Web',
+        items: [
+          { nama: 'Web Shop Simple', harga: 'Rp 100.000', img: 'https://files.catbox.moe/rrtxjx.jpg', link: 'web-soft-simple' },
+          { nama: 'Web Portofolio', harga: 'Rp 70.000', img: 'https://files.catbox.moe/rrtxjx.jpg', link: 'web-fortofolio' }
+        ]
+      }
+    ];
+
+function renderProduk(data) {
+  const container = document.getElementById('produk-container');
+  container.innerHTML = '';
+  let ditemukan = false;
+
+  data.forEach(kategori => {
+    const hasil = kategori.items.filter(item =>
+      item.nama.toLowerCase().includes(document.getElementById('search').value.toLowerCase())
+    );
+    if (hasil.length) {
+      ditemukan = true;
+      const section = document.createElement('section');
+      section.innerHTML = `
+        <h2 class="section-title">${kategori.kategori}</h2>
+        <div class="product-row">
+          ${hasil.map(item => `
+            <div class="product">
+              ${item.laris ? `<div class="badge">Terlaris</div>` : ''}
+              <img src="${item.img}" alt="${item.nama}" />
+              <h3>${item.nama}</h3>
+              <p>${item.harga}</p>
+              <a href="bayar.html?produk=${item.link}">
+                <button>Beli</button>
+              </a>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      container.appendChild(section);
+    }
+  });
+
+  document.getElementById('no-result').style.display = ditemukan ? 'none' : 'block';
+}
+
+    function filterProduk() {
+      const keyword = document.getElementById("search").value.toLowerCase();
+      const filtered = produkData.map(k => {
+        const items = k.items.filter(i => i.nama.toLowerCase().includes(keyword));
+        return { kategori: k.kategori, items };
+      }).filter(k => k.items.length > 0);
+      renderProduk(filtered);
+      document.getElementById("no-result").style.display = filtered.length === 0 ? "block" : "none";
     }
 
-    window.onscroll = function () {
-      const winScroll = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      document.getElementById("scrollBar").style.width = scrolled + "%";
-    };
-
-    // Typing Animation
-    new Typed("#typing", {
-      strings: ["Digital Explorer", "Code Tinkerer", "Curious Soul"],
-      typeSpeed: 60,
-      backSpeed: 40,
-      loop: true
-    });
-
-    // Tilt effect
-    VanillaTilt.init(document.querySelectorAll(".card"), {
-      max: 15,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.2,
-    });
-
-    // Particles.js
-    particlesJS.load("particles-js", "https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json");
+    renderProduk(produkData);
   </script>
 </body>
 </html>
