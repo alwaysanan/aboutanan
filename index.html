@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Toko digital terpercaya yang menjual panel WhatsApp, RAM bot, layanan hosting, dan jasa pembuatan website dengan harga terjangkau." />
+  <meta name="keywords" content="panel wa, bot whatsapp, alwaysanan, reseller panel, admin panel, vps murah, jasa pembuatan website" />
+  <title>alwaysanan.site</title>
+  <link rel="icon" href="https://files.catbox.moe/krgxoq.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --light-bg: #f9f9f9;
+      --light-text: #111;
+      --light-card: #fff;
+      --dark-bg: #121212;
+      --dark-text: #eaeaea;
+      --dark-card: #1e1e1e;
+      --accent: #4a90e2;
+      --badge-bg: #e94e77;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--light-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body.fade {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    body.dark {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    header {
+      background-color: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 700;
+      user-select: none;
+    }
+
+    .toggle-icon {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      z-index: 999;
+      background: var(--light-card);
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .toggle-icon svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      fill: var(--accent);
+      transition: fill 0.3s ease;
+    }
+
+    body.dark .toggle-icon {
+      background: var(--dark-card);
+    }
+
+    body.dark .toggle-icon svg {
+      fill: #eee;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-box input {
+      padding: 0.6rem 1.2rem;
+      width: 90%;
+      max-width: 400px;
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      font-size: 1rem;
+      background: transparent;
+      color: inherit;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--accent);
+      padding-left: 12px;
+      font-weight: 700;
+    }
+
+    .product-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .product-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product {
+      background: var(--light-card);
+      border-radius: 12px;
+      padding: 1rem;
+      width: 180px;
+      text-align: center;
+      position: relative;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      transition: background-color 0.4s ease, transform 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    body.dark .product {
+      background: var(--dark-card);
+      color: var(--dark-text);
+    }
+
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .product p {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .product button {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .badge {
+      background: var(--badge-bg);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 6px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+
+    #no-result {
+      text-align: center;
+      font-weight: 600;
+      margin: 2rem 0;
+      color: red;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #ddd;
+      background: var(--light-bg);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    body.dark footer {
+      background: var(--dark-bg);
+      color: #bbb;
+      border-top: 1px solid #444;
+    }
+
+    @media (max-width: 768px) {
+      .product {
+        width: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tombol Toggle Tema -->
+  <div class="toggle-icon" onclick="toggleMode()" id="toggleModeIcon">
+    <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 2a9.93 9.93 0 0 0-7.06 2.94A10 10 0 1 0 12 2zM4 12a8 8 0 0 1 8-8v16a8 8 0 0 1-8-8z"/>
+    </svg>
+  </div>
+
+  <header>alwaysanan.site</header>
+
+  <main class="container">
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Cari produk..." oninput="filterProduk()" />
+    </div>
+
+    <div id="produk-container"></div>
+    <div id="no-result" style="display: none;">Produk tidak ditemukan.</div>
+  </main>
+
+  <footer>
+    &copy; 2025 alwaysanan.site · Toko Digital<br />
+    <a href="https://wa.me/628584276391" target="_blank">WhatsApp</a> |
+    <a href="https://youtube.com/@alwaysanan" target="_blank">YouTube</a>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const icon = document.getElementById('themeIcon');
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark');
+    }
+
+    function toggleMode() {
+      body.classList.add('fade');
+      setTimeout(() => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        body.classList.remove('fade');
+      }, 150);
+    }
+
+    const produkData = [
+      {
+        kategori: 'Panel Admin & Reseller',
+        items: [
+          { nama: 'Reseller Panel', harga: 'Rp 15.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'reseller-panel' },
+          { nama: 'Admin Panel', harga: 'Rp 20.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'admin-panel' }
+        ]
+      },
+      {
+        kategori: 'Panel RAM',
+        items: [
+          { nama: 'RAM Unlimited', harga: 'Rp 10.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-unlimited', laris: true },
+          { nama: 'RAM 7GB', harga: 'Rp 7.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-7gb' },
+          { nama: 'RAM 6GB', harga: 'Rp 6.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-6gb' },
+          { nama: 'RAM 5GB', harga: 'Rp 5.000', img: 'https://files.catbox.moe/orlf8b.jpg', link: 'ram-5gb' }
+        ]
+      },
+      {
+        kategori: 'VPS Digital Ocean',
+        items: [
+          { nama: 'VPS 16GB RAM - 4 Core', harga: 'Rp 55.000', img: 'https://files.catbox.moe/vyolpg.jpg', link: 'vps-16gb-4core' },
+          { nama: 'VPS 8GB RAM - 4 Core', harga: 'Rp 45.000', img: 'https://files.catbox.moe/vyolpg.jpg', link: 'vps-8gb-4core' },
+          { nama: 'VPS 4GB RAM - 2 Core', harga: 'Rp 40.000', img: 'https://files.catbox.moe/vyolpg.jpg', link: 'vps-4gb-2core' }
+        ]
+      },
+      {
+        kategori: 'Pembuatan Web',
+        items: [
+          { nama: 'Web Shop Simple', harga: 'Rp 100.000', img: 'https://files.catbox.moe/rrtxjx.jpg', link: 'web-soft-simple' },
+          { nama: 'Web Portofolio', harga: 'Rp 70.000', img: 'https://files.catbox.moe/rrtxjx.jpg', link: 'web-fortofolio' }
+        ]
+      }
+    ];
+
+    function renderProduk(data) {
+      const container = document.getElementById('produk-container');
+      container.innerHTML = '';
+      let ditemukan = false;
+
+      data.forEach(kategori => {
+        const hasil = kategori.items.filter(item =>
+          item.nama.toLowerCase().includes(document.getElementById('search').value.toLowerCase())
+        );
+        if (hasil.length) {
+          ditemukan = true;
+          const section = document.createElement('section');
+          section.innerHTML = `
+            <h2 class="section-title">${kategori.kategori}</h2>
+            <div class="product-row">
+              ${hasil.map(item => `
+                <div class="product">
+                  ${item.laris ? `<div class="badge">Terlaris</div>` : ''}
+                  <img src="${item.img}" alt="${item.nama}" />
+                  <h3>${item.nama}</h3>
+                  <p>${item.harga}</p>
+                  <a href="bayar.html?produk=${item.link}">
+                    <button>Beli</button>
+                  </a>
+                </div>
+              `).join('')}
+            </div>
+          `;
+          container.appendChild(section);
+        }
+      });
+
+      document.getElementById('no-result').style.display = ditemukan ? 'none' : 'block';
+    }
+
+    function filterProduk() {
+      const keyword = document.getElementById("search").value.toLowerCase();
+      const filtered = produkData.map(k => {
+        const items = k.items.filter(i => i.nama.toLowerCase().includes(keyword));
+        return { kategori: k.kategori, items };
+      }).filter(k => k.items.length > 0);
+      renderProduk(filtered);
+    }
+
+    renderProduk(produkData);
+  </script>
+</body>
+</html>
