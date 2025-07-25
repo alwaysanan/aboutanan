@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="id" class="dark">
-<head>
+<!DOCTYPE html><html lang="id" class="dark"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>alwaysanan.site - Layanan Digital Terpercaya</title>
@@ -15,86 +13,69 @@
       font-family: 'Inter', sans-serif;
       background: radial-gradient(circle at top left, #1e293b, #0f172a);
       overflow-x: hidden;
-    }
-    .bokeh {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 20%, transparent 70%) 0 0 / 50px 50px;
-      backdrop-filter: blur(40px);
-      z-index: -1;
-      opacity: 0.15;
-    }
-    .wa-float {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 50;
-      background-color: #25D366;
-      padding: 12px;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .wa-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
-    }
-    .shadow-lg:hover {
-      transform: translateY(-4px);
-      transition: all 0.3s ease;
-    }
-    canvas#stars {
-      pointer-events: none;
-    }
+    }.bokeh {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 20%, transparent 70%) 0 0 / 50px 50px;
+  backdrop-filter: blur(40px);
+  z-index: -1;
+  opacity: 0.15;
+}
+
+.wa-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 50;
+  background-color: #25D366;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.shadow-lg:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+}
+
+canvas#stars {
+  pointer-events: none;
+}
+
   </style>
-</head>
-<body class="text-white relative">
-  <!-- Background Musik -->
+</head><body class="text-white relative">
   <audio autoplay loop hidden>
     <source src="https://cdn.pixabay.com/audio/2023/03/06/audio_2256aaf51b.mp3" type="audio/mpeg">
-  </audio>
+  </audio><canvas id="stars" class="fixed top-0 left-0 w-full h-full -z-10 opacity-10"></canvas>
 
-  <!-- Bintang Bergerak -->
-  <canvas id="stars" class="fixed top-0 left-0 w-full h-full -z-10 opacity-10"></canvas>
-
-  <!-- Latar Bokeh -->
-  <div class="bokeh"></div>
-
-  <!-- Marquee Promo -->
-  <div class="bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-2 text-center text-sm font-semibold animate-pulse">
+  <div class="bokeh"></div>  <div class="bg-gradient-to-r from-indigo-600 to-pink-600 text-white py-2 text-center text-sm font-semibold animate-pulse">
     🚀 Promo Minggu Ini: Suntik Followers Diskon 20%! Cek Sekarang!
-  </div>
-
-  <!-- Header -->
-  <header class="text-center py-10" data-aos="fade-down">
+  </div>  <header class="text-center py-10" data-aos="fade-down">
     <img src="https://files.catbox.moe/krgxoq.jpg" alt="Logo alwaysanan" class="mx-auto w-24 h-24 rounded-full shadow-xl mb-4">
     <h1 class="text-4xl font-bold"><span id="typed"></span></h1>
     <p class="text-gray-400 mt-2 text-base">Solusi digital terpercaya untuk semua kebutuhan Anda</p>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="max-w-2xl mx-auto text-center px-6 mb-10" data-aos="fade-up">
+  </header>  <section class="max-w-2xl mx-auto text-center px-6 mb-10" data-aos="fade-up">
     <p class="text-lg leading-relaxed text-gray-200">
       Kami menyediakan <span class="text-blue-400 font-semibold">Hosting Cepat</span> & <span class="text-pink-400 font-semibold">Layanan Suntik Sosmed</span> otomatis seperti followers, like, dan views. Semua proses cepat, aman, dan support 24 jam.
     </p>
     <div class="mt-6">
       <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_j1adxtyb.json" background="transparent" speed="1" style="width: 120px; height: 120px; margin: auto;" loop autoplay></lottie-player>
     </div>
-  </section>
-
-  <!-- Layanan -->
-  <section class="flex flex-col sm:flex-row justify-center gap-6 px-6 mb-10" data-aos="zoom-in-up">
+  </section>  <section class="flex flex-col sm:flex-row justify-center gap-6 px-6 mb-10" data-aos="zoom-in-up">
     <a href="https://alwaysanan.site/hosting" class="bg-blue-500 hover:bg-blue-600 transition-all duration-300 px-10 py-5 rounded-xl shadow-xl text-lg font-semibold w-full sm:w-1/3 text-center transform hover:scale-105 hover:shadow-2xl">
       🌐 Layanan Hosting
     </a>
     <a href="https://alwaysanan.site/sosmed" class="bg-rose-500 hover:bg-rose-600 transition-all duration-300 px-10 py-5 rounded-xl shadow-xl text-lg font-semibold w-full sm:w-1/3 text-center transform hover:scale-105 hover:shadow-2xl">
       📱 Suntik Sosmed
     </a>
-  </section>
-
-  <!-- Statistik -->
-  <section class="bg-gray-800 py-12" data-aos="fade-up">
+  </section>  <section class="bg-gray-800 py-12" data-aos="fade-up">
     <div class="max-w-5xl mx-auto text-center text-white px-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
       <div>
         <p class="text-4xl font-bold text-blue-400">5.200+</p>
@@ -109,10 +90,7 @@
         <p class="text-sm text-gray-300">Rating Pengguna</p>
       </div>
     </div>
-  </section>
-
-  <!-- Testimoni -->
-  <section class="bg-[#111827] py-14 px-6">
+  </section>  <section class="bg-[#111827] py-14 px-6">
     <h2 class="text-3xl font-bold text-center mb-8" data-aos="fade-right">Apa Kata Mereka?</h2>
     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 text-sm text-gray-100">
       <div class="bg-[#1f2937] p-6 rounded-xl shadow-lg" data-aos="zoom-in">
@@ -128,41 +106,24 @@
         <p class="mt-3 text-gray-400 font-semibold">— Alex, Web Developer</p>
       </div>
     </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="relative py-16 bg-fixed bg-cover bg-center" style="background-image: url('https://files.catbox.moe/k5sgpt.jpg');">
+  </section>  <section class="relative py-16 bg-fixed bg-cover bg-center" style="background-image: url('https://files.catbox.moe/k5sgpt.jpg');">
     <div class="bg-black bg-opacity-60 py-10 px-6 text-center text-white" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-4">Bergabung Sekarang</h2>
       <p class="mb-6">Perkuat akun sosial dan situsmu bersama alwaysanan.site</p>
       <a href="https://whatsapp.com/channel/0029VbAOGRl7YScuHVwWtI2c" class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition">Bergabung Saluran</a>
     </div>
-  </section>
-
-  <!-- Tentang Kami -->
-  <section class="bg-gray-900 py-12 text-center text-gray-300 px-6" data-aos="fade-up">
+  </section>  <section class="bg-gray-900 py-12 text-center text-gray-300 px-6" data-aos="fade-up">
     <h2 class="text-2xl font-bold mb-4">Tentang Kami</h2>
     <p class="max-w-3xl mx-auto">
       alwaysanan.site adalah platform digital yang menyediakan berbagai solusi untuk kebutuhan sosial media dan hosting Anda. Kami fokus pada layanan cepat, aman, dan berkualitas dengan harga terjangkau.
     </p>
-  </section>
-
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/6283191854894" target="_blank" class="wa-float">
+  </section>  <a href="https://wa.me/6283191854894" target="_blank" class="wa-float">
     <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="w-6 h-6 sm:w-7 sm:h-7" />
-  </a>
-
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-400 mb-6" data-aos="fade-in">
+  </a>  <footer class="text-center text-sm text-gray-400 mb-6" data-aos="fade-in">
     &copy; 2025 alwaysanan.site · Toko Digital
-  </footer>
-
-  <!-- Script Section -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
+  </footer>  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>  <script>
     AOS.init({ duration: 800, once: true });
 
-    // Typed.js
     var typed = new Typed('#typed', {
       strings: ["alwaysanan.site", "Layanan Digital Terpercaya", "Hosting & Suntik Sosmed Aman"],
       typeSpeed: 50,
@@ -170,7 +131,6 @@
       loop: true
     });
 
-    // Canvas Stars
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -181,6 +141,7 @@
       radius: Math.random() * 1.5,
       speed: Math.random() * 0.5 + 0.2
     }));
+
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = 'white';
@@ -194,6 +155,4 @@
       requestAnimationFrame(drawStars);
     }
     drawStars();
-  </script>
-</body>
-</html>
+  </script></body></html>
